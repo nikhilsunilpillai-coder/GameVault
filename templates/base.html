@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}GameVault{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="bg-grid"></div>
+<header class="navbar">
+    <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">🎮</span> Game<span>Vault</span></a>
+    <nav><a href="{{ url_for('index') }}">{{ ui.discover }}</a><a href="{{ url_for('admin') }}">{{ ui.admin }}</a>
+    <div class="lang-menu"><span>🌐 {{ ui.lang }}</span><a href="{{ url_for('set_language', lang='en') }}">EN</a><a href="{{ url_for('set_language', lang='hi') }}">HI</a><a href="{{ url_for('set_language', lang='mr') }}">MR</a></div></nav>
+</header>
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}<div class="flash-wrap">{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+{% endwith %}
+<main>{% block content %}{% endblock %}</main>
+<footer><strong>GameVault</strong> • Mini Project I • Game Information & Discovery System</footer>
+</body>
+</html>

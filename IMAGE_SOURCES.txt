@@ -1,0 +1,42 @@
+GAMEVAULT V4 IMAGE SOURCES
+==========================
+
+Minecraft
+Source: Official Minecraft website / Minecraft key-art material
+https://www.minecraft.net/en-us/article/key-art-update
+Direct image used by the demo:
+https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/NewKeyArt_Header.jpg
+
+Grand Theft Auto V
+Source: Rockstar Games / artwork reference
+https://www.rockstargames.com/newswire/article/o349k552544449/grand-theft-auto-v-official-announcement.html
+Demo image URL:
+https://mightyape.co.ke/public/uploads/all/kBt4D8i7PbYQAlZUNRf37jC90nZmL5im5LpYKVuU.jpg
+
+Elden Ring
+Source: Bandai Namco official Elden Ring site
+https://www.bandainamcoent.com/games/elden-ring/
+Demo image URL:
+https://rushgame.co/cdn/shop/files/elden-ring-pc-steam-cd-key-na-cover01_1200x1422.jpg?v=1756276424
+
+Valorant
+Source: Riot Games / Valorant official media information
+https://playvalorant.com/
+Demo image URL:
+https://images.stopgame.ru/games/logos/19592/c560x560/62PEyFi2MwDpL91qF8_FsA/valorant-square_1.jpg
+
+Red Dead Redemption 2
+Source: Rockstar Games artwork reference
+https://www.rockstargames.com/reddeadredemption2
+Demo image URL:
+https://raw.githubusercontent.com/maxym11/ps5-ui-assets/master/PS5%20Covers/rdr2-cov.jpg
+
+Stardew Valley
+Source: Stardew Valley official site / media reference
+https://www.stardewvalley.net/
+Demo image URL:
+https://images.igdb.com/igdb/image/upload/t_1080p_2x/coa93h.webp
+
+NOTE
+----
+The project uses these images only to make the academic demo visually representative of the games. Do not present the artwork as your own. Retain attribution/source notes in the project documentation.

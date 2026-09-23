@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block title %}GameVault | Discover Games{% endblock %}
+{% block content %}
+<section class="hero-v4">
+    <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> GAME INFORMATION & DISCOVERY</div>
+        <h1>Discover your next <span>great game.</span></h1>
+        <p>Search a curated game catalogue, compare genres and platforms, explore tags, check regional pricing and dive into detailed game information.</p>
+        <form class="searchbar-v4" method="get">
+            <input type="text" name="q" value="{{ q }}" placeholder="Search games, developers, publishers, genres or tags...">
+            <input type="hidden" name="genre" value="{{ selected_genre }}">
+            <input type="hidden" name="platform" value="{{ selected_platform }}">
+            <input type="hidden" name="tag" value="{{ selected_tag }}">
+            <input type="hidden" name="price" value="{{ selected_price }}">
+            <input type="hidden" name="country" value="{{ selected_country }}">
+            <input type="hidden" name="sort" value="{{ selected_sort }}">
+            <button type="submit">Search <span>⌕</span></button>
+        </form>
+        <div class="hero-stats">
+            <div><strong>{{ total_games }}</strong><span>Games</span></div>
+            <div><strong>{{ platforms|length }}</strong><span>Platforms</span></div>
+            <div><strong>{{ tags|length }}</strong><span>Tags</span></div>
+        </div>
+    </div>
+    <div class="hero-art"><div class="orb orb-a"></div><div class="orb orb-b"></div><div class="hero-console">🎮</div><span>EXPLORE • COMPARE • DISCOVER</span></div>
+</section>
+
+
+{% if not has_filters %}
+<section class="showcase-section">
+  <div class="showcase-heading"><div><span class="eyebrow">GAMEVAULT</span><h2>{{ ui.featured }}</h2></div><span>Curated from the current catalogue</span></div>
+  <div class="featured-grid">
+  {% for game in featured %}<a class="featured-card" href="{{ url_for('game_detail', game_id=game.id) }}"><img src="{{ game.image_url }}" alt="{{ game.name }}" onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/fallback.svg') }}';"><div class="featured-overlay"><span>★ {{ '%.1f'|format(game.rating) }}</span><h3>{{ game.name }}</h3><p>{{ game.genre }}</p></div></a>{% endfor %}
+  </div>
+</section>
+<section class="mini-row-section">
+ <div class="mini-section"><div class="showcase-heading"><h2>🔥 {{ ui.trending }}</h2></div><div class="mini-game-row">{% for game in trending %}<a href="{{ url_for('game_detail', game_id=game.id) }}"><img src="{{ game.image_url }}" alt="{{ game.name }}" onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/fallback.svg') }}';"><div><b>{{ game.name }}</b><small>★ {{ '%.1f'|format(game.rating) }}</small></div></a>{% endfor %}</div></div>
+ <div class="mini-section"><div class="showcase-heading"><h2>⭐ {{ ui.top }}</h2></div><div class="mini-game-row">{% for game in featured %}<a href="{{ url_for('game_detail', game_id=game.id) }}"><img src="{{ game.image_url }}" alt="{{ game.name }}" onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/fallback.svg') }}';"><div><b>{{ game.name }}</b><small>★ {{ '%.1f'|format(game.rating) }}</small></div></a>{% endfor %}</div></div>
+</section>
+<section class="genre-showcase"><div class="showcase-heading"><h2>🎯 {{ ui.browse }}</h2></div><div class="genre-cloud">{% for g in genres %}<a href="{{ url_for('index', genre=g.genre) }}">{{ g.genre }}</a>{% endfor %}</div></section>
+{% endif %}
+
+<section class="tag-strip">
+    <div class="section-label">{{ ui.browse }}</div>
+    <div class="tag-scroll">
+        <a class="category-pill {% if not selected_tag %}active{% endif %}" href="{{ url_for('index', q=q, genre=selected_genre, platform=selected_platform, price=selected_price, country=selected_country, sort=selected_sort) }}">All</a>
+        {% for t in tags %}
+            <a class="category-pill {% if selected_tag == t %}active{% endif %}" href="{{ url_for('index', q=q, genre=selected_genre, platform=selected_platform, tag=t, price=selected_price, country=selected_country, sort=selected_sort) }}">{{ t }}</a>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="catalog-layout">
+    <aside class="filter-panel">
+        <div class="filter-heading"><div><span class="filter-icon">☷</span><strong>{{ ui.filters }}</strong></div><a href="{{ url_for('index') }}">{{ ui.reset }}</a></div>
+        <form method="get" class="filter-form-v4">
+            <input type="hidden" name="q" value="{{ q }}">
+            <label>Genre
+                <select name="genre">
+                    <option value="">All genres</option>
+                    {% for g in genres %}<option value="{{ g.genre }}" {% if selected_genre == g.genre %}selected{% endif %}>{{ g.genre }}</option>{% endfor %}
+                </select>
+            </label>
+            <label>Platform
+                <select name="platform">
+                    <option value="">All platforms</option>
+                    {% for p in platforms %}<option value="{{ p.name }}" {% if selected_platform == p.name %}selected{% endif %}>{{ p.name }}</option>{% endfor %}
+                </select>
+            </label>
+            <label>Price type
+                <select name="price">
+                    <option value="">All</option><option value="Free" {% if selected_price == 'Free' %}selected{% endif %}>Free to Play</option><option value="Paid" {% if selected_price == 'Paid' %}selected{% endif %}>Paid</option>
+                </select>
+            </label>
+            <label>Region / currency
+                <select name="country">
+                    {% for c in countries %}<option value="{{ c.name }}" {% if selected_country == c.name %}selected{% endif %}>{{ c.name }} ({{ c.currency }})</option>{% endfor %}
+                </select>
+            </label>
+            <label>Sort by
+                <select name="sort">
+                    <option value="name" {% if selected_sort == 'name' %}selected{% endif %}>Name A–Z</option>
+                    <option value="name_desc" {% if selected_sort == 'name_desc' %}selected{% endif %}>Name Z–A</option>
+                    <option value="rating" {% if selected_sort == 'rating' %}selected{% endif %}>Highest rated</option>
+                    <option value="rating_low" {% if selected_sort == 'rating_low' %}selected{% endif %}>Lowest rated</option>
+                    <option value="newest" {% if selected_sort == 'newest' %}selected{% endif %}>Newest release</option>
+                    <option value="oldest" {% if selected_sort == 'oldest' %}selected{% endif %}>Oldest release</option>
+                    <option value="price_low" {% if selected_sort == 'price_low' %}selected{% endif %}>Lowest price</option>
+                    <option value="price_high" {% if selected_sort == 'price_high' %}selected{% endif %}>Highest price</option>
+                </select>
+            </label>
+            <label>Tag
+                <select name="tag">
+                    <option value="">All tags</option>
+                    {% for t in tags %}<option value="{{ t }}" {% if selected_tag == t %}selected{% endif %}>{{ t }}</option>{% endfor %}
+                </select>
+            </label>
+            <button class="apply-btn" type="submit">{{ ui.apply }}</button>
+        </form>
+    </aside>
+
+    <div class="catalog-main">
+        <div class="catalog-head">
+            <div><span class="eyebrow">{{ ui.catalog }}</span><h2>{{ games|length }} {{ ui.games }}</h2></div>
+            <div class="active-state">{% if q %}Search: <b>{{ q }}</b>{% else %}Showing the GameVault catalogue{% endif %}</div>
+        </div>
+        <section class="grid-v4">
+        {% for game in games %}
+            <article class="game-card-v4">
+                <a class="game-cover" href="{{ url_for('game_detail', game_id=game.id) }}">
+                    <img src="{{ game.image_url or url_for('static', filename='images/fallback.svg') }}" alt="{{ game.name }}" onerror="this.onerror=null;this.src='{{ url_for('static', filename='images/fallback.svg') }}';">
+                    <div class="cover-shade"></div>
+                    <div class="cover-top"><span>{{ game.genre }}</span>{% if game.pricing_type == 'Free' %}<b>FREE</b>{% endif %}</div>
+                    <div class="cover-bottom"><span>{{ ui.details }}</span><i>↗</i></div>
+                </a>
+                <div class="game-card-body">
+                    <div class="game-title-row"><h3>{{ game.name }}</h3><div class="score">★ {{ '%.1f'|format(game.rating) }}</div></div>
+                    <p class="game-meta">{{ game.developer }} <span>•</span> {{ game.release_date[:4] }}</p>
+                    <p class="game-summary">{{ game.summary }}</p>
+                    <div class="mini-tags">
+                        {% for t in game.tags.split(',')[:3] %}{% if t.strip() %}<span>{{ t.strip() }}</span>{% endif %}{% endfor %}
+                    </div>
+                    <div class="card-footer">
+                        <span class="price-label">{% if game.pricing_type == 'Free' %}<b>FREE</b>{% elif game.regional_price is not none %}{{ game.currency_symbol }}{{ '%.2f'|format(game.regional_price) }}{% else %}Price N/A{% endif %}</span>
+                        <a href="{{ url_for('game_detail', game_id=game.id) }}">{{ ui.details }} →</a>
+                    </div>
+                </div>
+            </article>
+        {% else %}
+            <div class="empty-v4"><div>⌁</div><h2>No games found</h2><p>Try another search, category or filter combination.</p><a class="btn" href="{{ url_for('index') }}">Clear filters</a></div>
+        {% endfor %}
+        </section>
+    </div>
+</section>
+{% endblock %}

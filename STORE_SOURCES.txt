@@ -1,0 +1,10 @@
+GameVault V5 - Store/Availability Sources
+
+The store buttons are intended as navigation links to official publisher/store pages. Availability can change by region and date.
+
+Minecraft: https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc
+VALORANT: https://playvalorant.com/en-us/console/ and https://playvalorant.com/en-gb/platform-selection/
+Elden Ring: https://www.bandainamcoent.com/games/elden-ring/
+Other store links point to the named publisher/store platform pages and are provided for demo navigation.
+
+Educational/demo project only. Game names, artwork, trademarks and store names belong to their respective owners.

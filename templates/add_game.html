@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}GameVault | Add Game{% endblock %}
+{% block content %}
+<section class="form-page">
+<p class="eyebrow">CATALOGUE MANAGEMENT</p><h1>Add a Game</h1><p class="muted">Create a new game record and its platform, language, store and regional pricing relationships.</p>
+<form method="post" class="project-form">
+<label>Game Name<input name="name" required autofocus></label>
+<label>Developer<input name="developer" required></label>
+<label>Publisher<input name="publisher" required></label>
+<label>Release Date<input type="date" name="release_date" required></label>
+<label>Genre<input name="genre" required placeholder="Action, RPG, Simulation..."></label>
+<label>Age Rating<input name="age_rating" required placeholder="E10+, T, M..."></label>
+<label>Rating<input type="number" name="rating" min="0" max="5" step="0.1" required></label>
+<label>Platforms<input name="platforms" placeholder="PC, PlayStation 5, Xbox Series X|S"></label>
+<label>Languages<input name="languages" placeholder="English, Japanese, French"></label>
+<label>Tags / Categories<input name="tags" placeholder="Action, RPG, Open World, Multiplayer"></label>
+<label>Image URL<input name="image_url" placeholder="https://..."></label>
+<label>Store Links <small>One per line: Store | URL | Platform</small><textarea name="stores" placeholder="Steam | https://store.steampowered.com/ | PC"></textarea></label>
+<label>Regional Prices <small>One per line: Country | Free/Paid | Amount</small><textarea name="prices" placeholder="India | Paid | 1999
+United States | Paid | 59.99"></textarea></label>
+<label>Summary<textarea name="summary" required></textarea></label>
+<label>How It Works<textarea name="how_it_works" required></textarea></label>
+<button class="btn" type="submit">Save Game</button>
+<a class="back" href="{{ url_for('admin') }}">← Back to dashboard</a>
+</form></section>
+{% endblock %}
