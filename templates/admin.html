@@ -1,56 +1,19 @@
 {% extends "base.html" %}
-{% block title %}GameVault | Admin Dashboard{% endblock %}
+{% block title %}GameVault | {{ ui.admin }}{% endblock %}
 {% block content %}
-<section class="page-head admin-head">
-    <div>
-        <p class="eyebrow">GAMEVAULT ADMIN</p>
-        <h1>Control the catalogue.</h1>
-        <p>Manage games, metadata and relationships stored in the SQLite database.</p>
-    </div>
-    <a class="btn" href="{{ url_for('add_game') }}">＋ Add New Game</a>
-</section>
-
+<section class="page-head admin-head"><div><p class="eyebrow">{{ ui.admin_eyebrow }}</p><h1>{{ ui.admin_title }}</h1><p>{{ ui.admin_desc }}</p></div><a class="btn" href="{{ url_for('add_game') }}">＋ {{ ui.add_game }}</a></section>
 <section class="admin-stats">
-    <div><span>🎮</span><strong>{{ stats.games }}</strong><small>Games</small></div>
-    <div><span>🎭</span><strong>{{ stats.genres }}</strong><small>Genres</small></div>
-    <div><span>💻</span><strong>{{ stats.platforms }}</strong><small>Platforms</small></div>
-    <div><span>🛒</span><strong>{{ stats.stores }}</strong><small>Store Links</small></div>
-    <div><span>🌍</span><strong>{{ stats.countries }}</strong><small>Countries</small></div>
-    <div><span>🗣️</span><strong>{{ stats.languages }}</strong><small>Languages</small></div>
-    <div><span>🆓</span><strong>{{ stats.free }}</strong><small>Free Games</small></div>
+ <div><span>🎮</span><strong>{{ stats.games }}</strong><small>{{ ui.games }}</small></div>
+ <div><span>🎭</span><strong>{{ stats.genres }}</strong><small>{{ ui.genres }}</small></div>
+ <div><span>💻</span><strong>{{ stats.platforms }}</strong><small>{{ ui.platforms }}</small></div>
+ <div><span>🛒</span><strong>{{ stats.stores }}</strong><small>{{ ui.store_links_stat }}</small></div>
+ <div><span>🌍</span><strong>{{ stats.countries }}</strong><small>{{ ui.countries }}</small></div>
+ <div><span>🗣️</span><strong>{{ stats.languages }}</strong><small>{{ ui.languages }}</small></div>
+ <div><span>🆓</span><strong>{{ stats.free }}</strong><small>{{ ui.free_games }}</small></div>
 </section>
-
-<section class="admin-toolbar">
-    <form method="get" class="admin-search">
-        <input name="q" value="{{ q }}" placeholder="Search games, developers or genres...">
-        <button class="apply-btn" type="submit">Search</button>
-        {% if q %}<a href="{{ url_for('admin') }}">Clear</a>{% endif %}
-    </form>
-    <span class="admin-count">{{ games|length }} result{% if games|length != 1 %}s{% endif %}</span>
-</section>
-
-<section class="admin-table">
-<table>
-    <thead><tr><th>Game</th><th>Genre</th><th>Developer</th><th>Rating</th><th>Action</th></tr></thead>
-    <tbody>
-    {% for game in games %}
-    <tr>
-        <td><strong>{{ game.name }}</strong><small class="table-sub">{{ game.release_date }}</small></td>
-        <td>{{ game.genre }}</td>
-        <td>{{ game.developer }}</td>
-        <td>⭐ {{ '%.1f'|format(game.rating) }}</td>
-        <td class="actions">
-            <a class="small-btn" href="{{ url_for('game_detail', game_id=game.id) }}">View</a>
-            <a class="small-btn edit-btn" href="{{ url_for('edit_game', game_id=game.id) }}">Edit</a>
-            <form method="post" action="{{ url_for('delete_game', game_id=game.id) }}" onsubmit="return confirm('Delete {{ game.name|e }}? This cannot be undone.')">
-                <button class="danger" type="submit">Delete</button>
-            </form>
-        </td>
-    </tr>
-    {% else %}
-    <tr><td colspan="5" class="empty-admin">No games match your search.</td></tr>
-    {% endfor %}
-    </tbody>
-</table>
-</section>
+<section class="admin-toolbar"><form method="get" class="admin-search"><input name="q" value="{{ q }}" placeholder="{{ ui.admin_search_placeholder }}"><button class="apply-btn" type="submit">{{ ui.search }}</button>{% if q %}<a href="{{ url_for('admin') }}">{{ ui.clear }}</a>{% endif %}</form><span class="admin-count">{{ games|length }} {% if games|length == 1 %}{{ ui.result }}{% else %}{{ ui.results }}{% endif %}</span></section>
+<section class="admin-table"><table><thead><tr><th>{{ ui.game }}</th><th>{{ ui.genre }}</th><th>{{ ui.developer }}</th><th>{{ ui.rating }}</th><th>{{ ui.action }}</th></tr></thead><tbody>
+{% for game in games %}<tr><td><strong>{{ game.name }}</strong><small class="table-sub">{{ game.release_date }}</small></td><td>{{ game.genre }}</td><td>{{ game.developer }}</td><td>⭐ {{ '%.1f'|format(game.rating) }}</td><td class="actions"><a class="small-btn" href="{{ url_for('game_detail', game_id=game.id) }}">{{ ui.view }}</a><a class="small-btn edit-btn" href="{{ url_for('edit_game', game_id=game.id) }}">{{ ui.edit }}</a><form method="post" action="{{ url_for('delete_game', game_id=game.id) }}" onsubmit="return confirm('{{ ui.confirm_delete }}')"><button class="danger" type="submit">{{ ui.delete }}</button></form></td></tr>
+{% else %}<tr><td colspan="5" class="empty-admin">{{ ui.no_admin_match }}</td></tr>{% endfor %}
+</tbody></table></section>
 {% endblock %}

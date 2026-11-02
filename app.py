@@ -244,9 +244,84 @@ EXTRA_STORES = {
 }
 
 UI_TEXT = {
-    "en": {"discover":"Discover", "admin":"Admin", "search":"Search games, developers, genres...", "featured":"Featured Games", "trending":"Trending Now", "top":"Top Rated", "free":"Free to Play", "browse":"Browse by Genre", "filters":"Filters", "reset":"Reset", "apply":"Apply Filters", "catalog":"Game Catalogue", "games":"Games", "details":"View Details", "about":"About the Game", "how":"How It Works", "platforms":"Platforms", "languages":"Languages", "where":"Where to Get It", "regional":"Regional Information", "price":"Regional Price", "developer":"Developer", "publisher":"Publisher", "release":"Release Date", "rating":"Rating", "age":"Age Rating", "tags":"Tags", "edit":"Edit Game", "back":"Back to games", "lang":"Language"},
-    "hi": {"discover":"गेम खोजें", "admin":"एडमिन", "search":"गेम, डेवलपर या शैली खोजें...", "featured":"चुनिंदा गेम", "trending":"अभी लोकप्रिय", "top":"सर्वाधिक रेटेड", "free":"फ्री टू प्ले", "browse":"शैली के अनुसार खोजें", "filters":"फ़िल्टर", "reset":"रीसेट", "apply":"फ़िल्टर लागू करें", "catalog":"गेम कैटलॉग", "games":"गेम", "details":"विवरण देखें", "about":"गेम के बारे में", "how":"यह कैसे काम करता है", "platforms":"प्लेटफ़ॉर्म", "languages":"भाषाएँ", "where":"कहाँ से प्राप्त करें", "regional":"क्षेत्रीय जानकारी", "price":"क्षेत्रीय कीमत", "developer":"डेवलपर", "publisher":"प्रकाशक", "release":"रिलीज़ तारीख", "rating":"रेटिंग", "age":"उम्र रेटिंग", "tags":"टैग", "edit":"गेम संपादित करें", "back":"गेम पर वापस जाएँ", "lang":"भाषा"},
-    "mr": {"discover":"गेम शोधा", "admin":"अॅडमिन", "search":"गेम, विकसक किंवा शैली शोधा...", "featured":"निवडक गेम", "trending":"सध्या लोकप्रिय", "top":"सर्वाधिक रेटेड", "free":"फ्री टू प्ले", "browse":"शैलीनुसार शोधा", "filters":"फिल्टर", "reset":"रीसेट", "apply":"फिल्टर लागू करा", "catalog":"गेम कॅटलॉग", "games":"गेम्स", "details":"तपशील पहा", "about":"गेमबद्दल", "how":"हे कसे कार्य करते", "platforms":"प्लॅटफॉर्म", "languages":"भाषा", "where":"कुठे मिळेल", "regional":"प्रादेशिक माहिती", "price":"प्रादेशिक किंमत", "developer":"विकसक", "publisher":"प्रकाशक", "release":"रिलीज तारीख", "rating":"रेटिंग", "age":"वय रेटिंग", "tags":"टॅग", "edit":"गेम संपादित करा", "back":"गेम्सकडे परत", "lang":"भाषा"}
+    "en": {
+        "discover":"Discover", "admin":"Admin", "lang":"Language",
+        "hero_eyebrow":"GAME INFORMATION & DISCOVERY", "hero_title_a":"Discover your next", "hero_title_b":"great game.", "explore_compare_discover":"EXPLORE • COMPARE • DISCOVER",
+        "hero_desc":"Search a curated game catalogue, compare genres and platforms, explore tags, check regional pricing and dive into detailed game information.",
+        "search":"Search", "search_placeholder":"Search games, developers, publishers, genres or tags...",
+        "games":"Games", "platform_count":"Platforms", "tag_count":"Tags", "featured":"Featured Games",
+        "curated":"Curated from the current catalogue", "trending":"Trending Now", "top":"Top Rated", "browse":"Browse by Genre",
+        "all":"All", "filters":"Filters", "reset":"Reset", "apply":"Apply Filters", "genre":"Genre", "all_genres":"All genres",
+        "platform":"Platform", "all_platforms":"All platforms", "price_type":"Price type", "all_prices":"All", "free_to_play":"Free to Play", "paid":"Paid",
+        "region_currency":"Region / currency", "sort_by":"Sort by", "name_az":"Name A–Z", "name_za":"Name Z–A", "highest_rated":"Highest rated", "lowest_rated":"Lowest rated",
+        "newest_release":"Newest release", "oldest_release":"Oldest release", "lowest_price":"Lowest price", "highest_price":"Highest price", "tag":"Tag", "all_tags":"All tags",
+        "catalog":"Game Catalogue", "search_label":"Search", "showing_catalog":"Showing the GameVault catalogue", "details":"View Details", "free":"FREE", "price_na":"Price N/A",
+        "no_games":"No games found", "try_search":"Try another search, category or filter combination.", "clear_filters":"Clear filters",
+        "about":"About the Game", "how":"How It Works", "platforms":"Platforms", "languages":"Languages", "where":"Where to Get It", "visit":"Visit",
+        "regional":"Regional Information", "price":"Regional Price", "country":"Country", "free_in":"Free-to-play in", "price_stored":"stored in GameVault for", "no_price":"No regional price has been added for this country yet.",
+        "developer":"Developer", "publisher":"Publisher", "release":"Release Date", "rating":"Rating", "age":"Age Rating", "tags":"Tags", "edit":"Edit Game", "back":"Back to games",
+        "admin_eyebrow":"GAMEVAULT ADMIN", "admin_title":"Control the catalogue.", "admin_desc":"Manage games, metadata and relationships stored in the SQLite database.",
+        "add_game":"Add New Game", "genres":"Genres", "store_links_stat":"Store Links", "countries":"Countries", "free_games":"Free Games",
+        "admin_search_placeholder":"Search games, developers or genres...", "clear":"Clear", "result":"result", "results":"results", "game":"Game", "action":"Action", "view":"View", "delete":"Delete",
+        "confirm_delete":"Are you sure you want to delete this game? This action cannot be undone.", "no_admin_match":"No games match your search.", "game_added":"Game added successfully.", "game_updated":"Game updated successfully.", "game_not_found":"Game not found.", "game_deleted":"Game deleted successfully.",
+        "catalogue_management":"CATALOGUE MANAGEMENT", "add_game_title":"Add a Game", "add_game_help":"Create a new game record and its platform, language, store and regional pricing relationships.",
+        "game_name":"Game Name", "age_rating":"Age Rating", "tags_categories":"Tags / Categories", "image_url":"Image URL", "store_links":"Store Links", "store_format":"One per line: Store | URL | Platform",
+        "regional_prices":"Regional Prices", "price_format":"One per line: Country | Free/Paid | Amount", "summary":"Summary", "how_it_works":"How It Works", "save_game":"Save Game",
+        "back_dashboard":"Back to dashboard", "edit_game_title":"Edit Game", "edit_game_help":"Update the selected record and its related database entries.", "update_game":"Update Game", "cancel":"Cancel",
+        "footer":"Mini Project I • Game Information & Discovery System", "language_changed":"Language updated."
+    },
+    "hi": {
+        "discover":"खोजें", "admin":"एडमिन", "lang":"भाषा",
+        "hero_eyebrow":"गेम जानकारी और खोज", "hero_title_a":"अपना अगला", "hero_title_b":"शानदार गेम खोजें।", "explore_compare_discover":"खोजें • तुलना करें • जानकारी पाएँ",
+        "hero_desc":"गेम कैटलॉग में खोजें, शैली और प्लेटफ़ॉर्म की तुलना करें, टैग देखें और क्षेत्रीय कीमतों सहित विस्तृत जानकारी पाएँ।",
+        "search":"खोजें", "search_placeholder":"गेम, डेवलपर, प्रकाशक, शैली या टैग खोजें...",
+        "games":"गेम", "platform_count":"प्लेटफ़ॉर्म", "tag_count":"टैग", "featured":"चुनिंदा गेम",
+        "curated":"मौजूदा कैटलॉग से चुने गए", "trending":"अभी लोकप्रिय", "top":"सबसे अधिक रेटिंग वाले", "browse":"शैली के अनुसार खोजें",
+        "all":"सभी", "filters":"फ़िल्टर", "reset":"रीसेट", "apply":"फ़िल्टर लागू करें", "genre":"शैली", "all_genres":"सभी शैलियाँ",
+        "platform":"प्लेटफ़ॉर्म", "all_platforms":"सभी प्लेटफ़ॉर्म", "price_type":"कीमत का प्रकार", "all_prices":"सभी", "free_to_play":"मुफ़्त खेलने योग्य", "paid":"भुगतान वाला",
+        "region_currency":"क्षेत्र / मुद्रा", "sort_by":"क्रमबद्ध करें", "name_az":"नाम A–Z", "name_za":"नाम Z–A", "highest_rated":"सबसे अधिक रेटिंग", "lowest_rated":"सबसे कम रेटिंग",
+        "newest_release":"नवीनतम रिलीज़", "oldest_release":"सबसे पुरानी रिलीज़", "lowest_price":"सबसे कम कीमत", "highest_price":"सबसे अधिक कीमत", "tag":"टैग", "all_tags":"सभी टैग",
+        "catalog":"गेम कैटलॉग", "search_label":"खोजें", "showing_catalog":"GameVault कैटलॉग दिखाया जा रहा है", "details":"विवरण देखें", "free":"मुफ़्त", "price_na":"कीमत उपलब्ध नहीं",
+        "no_games":"कोई गेम नहीं मिला", "try_search":"दूसरी खोज, श्रेणी या फ़िल्टर का उपयोग करें।", "clear_filters":"फ़िल्टर हटाएँ",
+        "about":"गेम के बारे में", "how":"यह कैसे काम करता है", "platforms":"प्लेटफ़ॉर्म", "languages":"भाषाएँ", "where":"कहाँ उपलब्ध है", "visit":"खोलें",
+        "regional":"क्षेत्रीय जानकारी", "price":"क्षेत्रीय कीमत", "country":"देश", "free_in":"यहाँ मुफ़्त खेलने योग्य:", "price_stored":"के लिए GameVault में दर्ज कीमत", "no_price":"इस देश के लिए अभी कोई क्षेत्रीय कीमत दर्ज नहीं है।",
+        "developer":"डेवलपर", "publisher":"प्रकाशक", "release":"रिलीज़ की तारीख", "rating":"रेटिंग", "age":"आयु रेटिंग", "tags":"टैग", "edit":"गेम संपादित करें", "back":"गेम सूची पर वापस जाएँ",
+        "admin_eyebrow":"GAMEVAULT एडमिन", "admin_title":"कैटलॉग प्रबंधित करें।", "admin_desc":"SQLite डेटाबेस में संग्रहीत गेम, जानकारी और उनके संबंधों का प्रबंधन करें।",
+        "add_game":"नया गेम जोड़ें", "genres":"शैलियाँ", "store_links_stat":"स्टोर लिंक", "countries":"देश", "free_games":"मुफ़्त गेम",
+        "admin_search_placeholder":"गेम, डेवलपर या शैली खोजें...", "clear":"हटाएँ", "result":"परिणाम", "results":"परिणाम", "game":"गेम", "action":"कार्य", "view":"देखें", "delete":"हटाएँ",
+        "confirm_delete":"क्या आप वाकई यह गेम हटाना चाहते हैं? यह कार्रवाई वापस नहीं की जा सकती।", "no_admin_match":"आपकी खोज से कोई गेम मेल नहीं खाता।", "game_added":"गेम सफलतापूर्वक जोड़ दिया गया।", "game_updated":"गेम सफलतापूर्वक अपडेट किया गया।", "game_not_found":"गेम नहीं मिला।", "game_deleted":"गेम सफलतापूर्वक हटा दिया गया।",
+        "catalogue_management":"कैटलॉग प्रबंधन", "add_game_title":"गेम जोड़ें", "add_game_help":"नया गेम रिकॉर्ड तथा उसके प्लेटफ़ॉर्म, भाषाएँ, स्टोर और क्षेत्रीय कीमतें जोड़ें।",
+        "game_name":"गेम का नाम", "age_rating":"आयु रेटिंग", "tags_categories":"टैग / श्रेणियाँ", "image_url":"इमेज URL", "store_links":"स्टोर लिंक", "store_format":"हर पंक्ति में: स्टोर | URL | प्लेटफ़ॉर्म",
+        "regional_prices":"क्षेत्रीय कीमतें", "price_format":"हर पंक्ति में: देश | मुफ़्त/भुगतान | राशि", "summary":"संक्षिप्त विवरण", "how_it_works":"गेम कैसे खेला जाता है", "save_game":"गेम सेव करें",
+        "back_dashboard":"डैशबोर्ड पर वापस जाएँ", "edit_game_title":"गेम संपादित करें", "edit_game_help":"चुने हुए गेम और उससे जुड़े डेटाबेस रिकॉर्ड अपडेट करें।", "update_game":"गेम अपडेट करें", "cancel":"रद्द करें",
+        "footer":"मिनी प्रोजेक्ट I • गेम जानकारी और खोज प्रणाली", "language_changed":"भाषा बदल दी गई है।"
+    },
+    "mr": {
+        "discover":"शोधा", "admin":"अॅडमिन", "lang":"भाषा",
+        "hero_eyebrow":"गेमची माहिती आणि शोध", "hero_title_a":"तुमचा पुढचा", "hero_title_b":"छान गेम शोधा.", "explore_compare_discover":"शोधा • तुलना करा • माहिती मिळवा",
+        "hero_desc":"गेम कॅटलॉगमध्ये शोधा, प्रकार आणि प्लॅटफॉर्मची तुलना करा, टॅग पाहा आणि प्रादेशिक किमतींसह सविस्तर माहिती मिळवा.",
+        "search":"शोधा", "search_placeholder":"गेम, विकसक, प्रकाशक, प्रकार किंवा टॅग शोधा...",
+        "games":"गेम्स", "platform_count":"प्लॅटफॉर्म", "tag_count":"टॅग", "featured":"निवडक गेम्स",
+        "curated":"सध्याच्या कॅटलॉगमधून निवडलेले", "trending":"सध्या लोकप्रिय", "top":"सर्वाधिक रेटिंग असलेले", "browse":"प्रकारानुसार शोधा",
+        "all":"सर्व", "filters":"फिल्टर", "reset":"रीसेट", "apply":"फिल्टर लागू करा", "genre":"प्रकार", "all_genres":"सर्व प्रकार",
+        "platform":"प्लॅटफॉर्म", "all_platforms":"सर्व प्लॅटफॉर्म", "price_type":"किमतीचा प्रकार", "all_prices":"सर्व", "free_to_play":"मोफत खेळता येणारे", "paid":"पैसे देऊन",
+        "region_currency":"प्रदेश / चलन", "sort_by":"क्रमवारी लावा", "name_az":"नाव A–Z", "name_za":"नाव Z–A", "highest_rated":"सर्वाधिक रेटिंग", "lowest_rated":"कमी रेटिंग",
+        "newest_release":"नवीनतम रिलीज", "oldest_release":"जुनी रिलीज", "lowest_price":"कमी किंमत", "highest_price":"जास्त किंमत", "tag":"टॅग", "all_tags":"सर्व टॅग",
+        "catalog":"गेम कॅटलॉग", "search_label":"शोधा", "showing_catalog":"GameVault कॅटलॉग दाखवत आहे", "details":"तपशील पाहा", "free":"मोफत", "price_na":"किंमत उपलब्ध नाही",
+        "no_games":"कोणताही गेम सापडला नाही", "try_search":"दुसरा शोध, प्रकार किंवा फिल्टर वापरून पाहा.", "clear_filters":"फिल्टर काढा",
+        "about":"गेमबद्दल", "how":"हा गेम कसा खेळायचा", "platforms":"प्लॅटफॉर्म", "languages":"भाषा", "where":"कुठे उपलब्ध आहे", "visit":"भेट द्या",
+        "regional":"प्रादेशिक माहिती", "price":"प्रादेशिक किंमत", "country":"देश", "free_in":"येथे मोफत खेळता येतो:", "price_stored":"साठी GameVault मध्ये नोंदवलेली किंमत", "no_price":"या देशासाठी अजून प्रादेशिक किंमत नोंदवलेली नाही.",
+        "developer":"विकसक", "publisher":"प्रकाशक", "release":"रिलीज तारीख", "rating":"रेटिंग", "age":"वयोमर्यादा रेटिंग", "tags":"टॅग", "edit":"गेम संपादित करा", "back":"गेम्सकडे परत जा",
+        "admin_eyebrow":"GAMEVAULT अॅडमिन", "admin_title":"कॅटलॉग व्यवस्थापित करा.", "admin_desc":"SQLite डेटाबेसमध्ये साठवलेले गेम, माहिती आणि त्यांचे संबंध व्यवस्थापित करा.",
+        "add_game":"नवीन गेम जोडा", "genres":"प्रकार", "store_links_stat":"स्टोअर लिंक", "countries":"देश", "free_games":"मोफत गेम्स",
+        "admin_search_placeholder":"गेम, विकसक किंवा प्रकार शोधा...", "clear":"काढा", "result":"निकाल", "results":"निकाल", "game":"गेम", "action":"कृती", "view":"पाहा", "delete":"हटवा",
+        "confirm_delete":"तुम्हाला हा गेम नक्की हटवायचा आहे का? ही कृती पूर्ववत करता येणार नाही.", "no_admin_match":"तुमच्या शोधाशी जुळणारा गेम आढळला नाही.", "game_added":"गेम यशस्वीरित्या जोडला.", "game_updated":"गेम यशस्वीरित्या अद्ययावत केला.", "game_not_found":"गेम सापडला नाही.", "game_deleted":"गेम यशस्वीरित्या हटवला.",
+        "catalogue_management":"कॅटलॉग व्यवस्थापन", "add_game_title":"गेम जोडा", "add_game_help":"नवीन गेम रेकॉर्ड आणि त्याचे प्लॅटफॉर्म, भाषा, स्टोअर व प्रादेशिक किमती जोडा.",
+        "game_name":"गेमचे नाव", "age_rating":"वयोमर्यादा रेटिंग", "tags_categories":"टॅग / श्रेणी", "image_url":"इमेज URL", "store_links":"स्टोअर लिंक", "store_format":"प्रत्येक ओळीत: स्टोअर | URL | प्लॅटफॉर्म",
+        "regional_prices":"प्रादेशिक किमती", "price_format":"प्रत्येक ओळीत: देश | मोफत/पेड | रक्कम", "summary":"थोडक्यात माहिती", "how_it_works":"गेम कसा खेळायचा", "save_game":"गेम जतन करा",
+        "back_dashboard":"डॅशबोर्डवर परत जा", "edit_game_title":"गेम संपादित करा", "edit_game_help":"निवडलेला गेम आणि त्याच्याशी संबंधित डेटाबेस नोंदी अद्ययावत करा.", "update_game":"गेम अद्ययावत करा", "cancel":"रद्द करा",
+        "footer":"मिनी प्रोजेक्ट I • गेम माहिती आणि शोध प्रणाली", "language_changed":"भाषा बदलली आहे."
+    }
 }
 
 
@@ -601,7 +676,19 @@ def inject_ui():
 def set_language(lang):
     if lang in UI_TEXT:
         session["lang"] = lang
-    return redirect(request.referrer or url_for("index"))
+        session.modified = True
+
+    # Return to the page the visitor was viewing, but never redirect to another host.
+    referrer = request.referrer
+    if not referrer:
+        return redirect(url_for("index"))
+    parsed = urlparse(referrer)
+    if parsed.netloc and parsed.netloc != request.host:
+        return redirect(url_for("index"))
+    target = parsed.path or url_for("index")
+    if parsed.query:
+        target += "?" + parsed.query
+    return redirect(target)
 
 @app.route("/")
 def index():
@@ -851,7 +938,7 @@ def add_game():
             game_id = conn.execute("SELECT last_insert_rowid()").fetchone()[0]
             save_relationships(conn, game_id, data)
             conn.commit()
-            flash("Game added successfully.", "success")
+            flash(UI_TEXT[session.get("lang", "en")]["game_added"], "success")
             return redirect(url_for("admin"))
         except Exception as e:
             conn.rollback()
@@ -887,7 +974,7 @@ def edit_game(game_id):
                   data.get("image_url", "").strip(), data.get("tags", "").strip(), game_id))
             save_relationships(conn, game_id, data)
             conn.commit()
-            flash("Game updated successfully.", "success")
+            flash(UI_TEXT[session.get("lang", "en")]["game_updated"], "success")
             return redirect(url_for("admin"))
         except Exception as e:
             conn.rollback()
@@ -913,7 +1000,7 @@ def delete_game(game_id):
     game = conn.execute("SELECT name FROM games WHERE id=?", (game_id,)).fetchone()
     if not game:
         conn.close()
-        flash("Game not found.", "error")
+        flash(UI_TEXT[session.get("lang", "en")]["game_not_found"], "error")
         return redirect(url_for("admin"))
     # Explicit cleanup keeps the app safe even if an older DB has foreign keys disabled.
     for table in ("game_platforms", "game_languages", "prices", "game_stores"):
@@ -921,10 +1008,10 @@ def delete_game(game_id):
     conn.execute("DELETE FROM games WHERE id=?", (game_id,))
     conn.commit()
     conn.close()
-    flash(f"{game['name']} deleted.", "success")
+    flash(f"{game['name']}: " + UI_TEXT[session.get("lang", "en")]["game_deleted"], "success")
     return redirect(url_for("admin"))
 
 
 if __name__ == "__main__":
     init_db()
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(debug=True)

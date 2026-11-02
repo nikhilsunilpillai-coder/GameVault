@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ current_lang }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,12 +11,17 @@
 <header class="navbar">
     <a class="brand" href="{{ url_for('index') }}"><span class="brand-mark">🎮</span> Game<span>Vault</span></a>
     <nav><a href="{{ url_for('index') }}">{{ ui.discover }}</a><a href="{{ url_for('admin') }}">{{ ui.admin }}</a>
-    <div class="lang-menu"><span>🌐 {{ ui.lang }}</span><a href="{{ url_for('set_language', lang='en') }}">EN</a><a href="{{ url_for('set_language', lang='hi') }}">HI</a><a href="{{ url_for('set_language', lang='mr') }}">MR</a></div></nav>
+    <div class="lang-menu" aria-label="{{ ui.lang }}">
+        <span>🌐 {{ ui.lang }}</span>
+        <a class="{% if current_lang == 'en' %}active{% endif %}" aria-label="English" {% if current_lang == 'en' %}aria-current="page"{% endif %} href="{{ url_for('set_language', lang='en') }}">EN</a>
+        <a class="{% if current_lang == 'hi' %}active{% endif %}" aria-label="हिन्दी" {% if current_lang == 'hi' %}aria-current="page"{% endif %} href="{{ url_for('set_language', lang='hi') }}">HI</a>
+        <a class="{% if current_lang == 'mr' %}active{% endif %}" aria-label="मराठी" {% if current_lang == 'mr' %}aria-current="page"{% endif %} href="{{ url_for('set_language', lang='mr') }}">MR</a>
+    </div></nav>
 </header>
 {% with messages = get_flashed_messages(with_categories=true) %}
 {% if messages %}<div class="flash-wrap">{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}
 {% endwith %}
 <main>{% block content %}{% endblock %}</main>
-<footer><strong>GameVault</strong> • Mini Project I • Game Information & Discovery System</footer>
+<footer><strong>GameVault</strong> • {{ ui.footer }}</footer>
 </body>
 </html>
